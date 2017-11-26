@@ -3,4 +3,4 @@ application:
     - ./data:/tmp/data
   image: semantive/sbt-application:1.0
   external_links:
-    - sparkdockerexample_master_1
+    - sparkclusterwithapp_master_1

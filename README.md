@@ -6,11 +6,11 @@ An example of using a Docker image to create and submit a Spark App.
 2. [SBT](http://www.scala-sbt.org/)
 
 ## Running
-1. Create docker image of the sbt-application by executing following command inside ``sbt-application`` directory:
+1. Create the docker images by executing the following command inside the ``sbt-application`` directory:
 
 ```sbt docker```
 
-2. Run the Spark cluster from the top directory:
+2. Run the Spark cluster by executing the following command from the top directory:
 
 ```docker-compose -f docker-compose-spark.yml up```
 
@@ -18,7 +18,7 @@ This will run two images:
 - Spark master
 - Spark worker
 
-3. Run the Spark app from the top directory
+3. Run the Spark app by executing the following command from the top directory
 
 ```docker-compose -f docker-compose-app.yml up```
 
