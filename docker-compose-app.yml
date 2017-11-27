@@ -1,6 +1,0 @@
-application:
-  volumes:
-    - ./data:/tmp/data
-  image: semantive/sbt-application:1.0
-  external_links:
-    - sparkclusterwithapp_master_1

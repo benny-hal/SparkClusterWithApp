@@ -8,11 +8,11 @@ An example of using a Docker image to create and submit a Spark App.
 ## Running
 1. Create the docker images by executing the following command inside the ``sbt-application`` directory:
 
-```sbt docker```
+```sbt assembly```
 
 2. Run the Spark cluster by executing the following command from the top directory:
 
-```docker-compose -f docker-compose-spark.yml up```
+```docker-compose up master worker```
 
 This will run two images: 
 - Spark master
@@ -20,7 +20,7 @@ This will run two images:
 
 3. Run the Spark app by executing the following command from the top directory
 
-```docker-compose -f docker-compose-app.yml up```
+```docker-compose up application```
 
 This will run one image: 
 - sbt-application (Spark job)
