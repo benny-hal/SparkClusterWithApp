@@ -29,11 +29,10 @@ worker:
     - 8081:8081
   volumes:
     - ./data:/tmp/data
-    
-    
+
 application:
   image: semantive/spark
-  command: bin/spark-submit --class "SparkApplication" --master spark://master:7077  /app/spark-app.jar
+  command: bin/spark-submit --class "SparkApplication" --master spark://master:7077  /app/spark-app.jar 10
   volumes:
     - ./data:/tmp/data
     - ./sbt-application/target/scala-2.11:/app
