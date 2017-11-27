@@ -7,16 +7,13 @@ import org.apache.spark.sql.functions.lower
 
 /**
   * Sample Spark application.
-  *  Calculates volume of a sphere (r = 1) using the Monte Carlo method.
   */
 object SparkApplication {
-
-  case class Point(x: Double, y: Double, z: Double)
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession
       .builder
-      .appName("Spark Pi")
+      .appName("Amazon Reviews")
       .getOrCreate()
 
     spark.sparkContext.setLogLevel("ERROR")
@@ -32,8 +29,8 @@ object SparkApplication {
     spark.sql("select ProductId, count(*) as count from Review group by ProductId order by count desc").limit(20).show();
 
     
-    val ds1 = ds.withColumn("Text", lower(regexp_replace($"Text", "(!|\\)|\\(|,|\"|\\.)", ""))).withColumn("Text", split($"Text", "\\s+")).select(explode($"Text"));
-    ds1.createOrReplaceTempView("Words")
+    val dsWords = ds.withColumn("Text", lower(regexp_replace($"Text", "(!|\\)|\\(|,|\"|\\.)", ""))).withColumn("Text", split($"Text", "\\s+")).select(explode($"Text"));
+    dsWords.createOrReplaceTempView("Words")
 
     spark.sql("select col as word, count(*) as count from Words group by col order by count desc").limit(20).show();
 
